@@ -18,9 +18,9 @@ function bindEventListeners (dots) {
 }
 
 function makeGreen (evt) {
-  evt.preventDefault()
-  evt.target.classList.toggle('green')
-  updateCounts()
+  evt.preventDefault();
+  evt.target.classList.toggle('green');
+  updateCounts();
 }
 
 // CREATE FUNCTION makeBlue HERE
@@ -42,7 +42,16 @@ function updateCounts () {
   }
 
   // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
-
+  var dotsList = document.getElementsByClassName('board')[0].children;
+  for (var i = 0; i < dotsList.length; i++) {
+    if (dotsList[i].classList.contains('blue')) {
+      totals.blue += 1;
+    } else if (dotsList[i].classList.contains('green')) {
+      totals.green += 1;
+    } else if (dotsList[i].classList.contains('invisible')) {
+      totals.invisible += 1;
+    }
+  }
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
 }
